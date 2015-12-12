@@ -60,7 +60,7 @@ class Taringa{
 	}
 
 	public function sendShout($body,$attach=0,$attach_url='',$privacy=1){
-		$result=$this->request->postRequest('http://www.taringa.net/ajax/shout/add',array('key'=>$this->user_key,'body'=>$body,'privacy'=>$privacy,'attachment_type'=>$attach,'attachment'=>$attach_url));
+		$result=$this->request->postRequest('https://www.taringa.net/ajax/shout/add',array('key'=>$this->user_key,'body'=>$body,'privacy'=>$privacy,'attachment_type'=>$attach,'attachment'=>$attach_url));
 
 		return (startsWith($result,'0:'))?false:$result;
 	}
