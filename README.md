@@ -22,6 +22,7 @@ getNewsFeed(); //obtiene los ultimos shouts *en html*
 
 voteShout($uid,$ownerid) // Votar shout. $uid = id del shout, $ownerid= id del creador del shout
 
+getNotifications(); // ultimas 5 notificaciones en formato json
 ## Uso
 
 Ver el archivo test.php para un ejemplo
