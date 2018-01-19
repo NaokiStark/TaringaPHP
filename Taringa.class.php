@@ -87,23 +87,21 @@ class Taringa{
 			));
 		return $result;
 	}
-	public function sendShout($body,$attach=0,$attach_url='',$privacy=1){
-		
-		$result=$this->request->postRequest('https://www.taringa.net/ajax/shout/add',array('key'=>$this->user_key,'body'=>$body,'privacy'=>$privacy,'attachment_type'=>$attach,'attachment'=>$attach_url));
-
-		return (startsWith($result,'0:'))?false:$result;
-	}
-		public function getNotify(){
+	
+	public function getNotify(){
 		$res=$this->request->getRequest('https://www.taringa.net/clima'); //Hoy es un día gris
 		preg_match_all("/new notifications\('[\w\d]+',\s*(.*?)\)/i", $res, $fndd);
 		return json_decode($fndd[1][0],true);
 	}
+
 	public function getNewsFeed(){
 		return $result=$this->request->postRequest('https://www.taringa.net/ajax/feed/fetch',array('key' => $this->user_key,'feedName'=>'newsfeed'));
 	}
+
 	public function voteShout($uid,$ownerid){
 		return $this->request->postRequest('https://www.taringa.net/ajax/shout/vote',array('score'=>'1','key' => $this->user_key,'uuid'=>$uid,'owner'=>$ownerid));
 	}
+
 	public function getNotifications(){
 		return json_decode($this->request->postRequest('https://www.taringa.net/notificaciones-ajax.php',array('key' => $this->user_key,'action'=>'last','template'=>'false','imageSize'=>'48')),true);
 	}
