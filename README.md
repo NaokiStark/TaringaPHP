@@ -1,5 +1,7 @@
 # TaringaPHP
 
+# Esto se murio junto con Taringa, Rest In Peace
+
 Api no oficial en PHP
 
 # Acerca de esto
